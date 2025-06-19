@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфигуратор Arizona RP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Конфигуратор Сборки</h1>
+            <p>Соберите сборку вручную или задайте цели для автоматического подбора</p>
+        </header>
+
+        <main class="builder">
+            <!-- Секция выбора предметов -->
+            <div class="slots-container">
+                <!-- БЛОК КОНФИГУРАТОРА ПО ЦЕЛЯМ -->
+                <section class="target-configurator">
+                    <h3><span class="icon">🎯</span> Конфигуратор по Целям</h3>
+                    <p class="target-desc">Укажите желаемые характеристики, и система подберет оптимальную сборку.
+                        Оставьте поля пустыми, если характеристика не важна.</p>
+                    <div class="target-inputs" id="target-inputs-grid">
+                    </div>
+                    <div class="target-actions">
+                        <button id="target-config-btn">Найти сборку</button>
+                        <button id="target-reset-btn" class="secondary">Сбросить</button>
+                    </div>
+                </section>
+
+                <!-- СЛОТ ДЛЯ СКИНА -->
+                <div class="slot skin-slot" data-slot-id="skin">
+                    <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                    <img src="" alt="Скин" class="slot-image" id="image-skin">
+                    <h3 class="slot-title" id="name-skin">Скин</h3>
+                    <div class="slot-transfer-info"></div>
+                    <div class="slot-unique-property"></div> 
+                    <div class="selector-container">
+                        <input type="text" class="slot-search-input" placeholder="Поиск..."
+                            data-target-select="select-skin">
+                        <select id="select-skin" class="slot-select"></select>
+                    </div>
+                    <div class="modifiers-container">
+                        <div class="enhancement-container">
+                            <label>Улучшение:</label>
+                            <div class="enhancement-control" data-enhancement-slot-id="skin">
+                                <button class="enhancement-btn minus" data-action="minus">-</button>
+                                <input type="number" class="enhancement-input" value="0" min="0" max="12" >
+                                <button class="enhancement-btn plus" data-action="plus">+</button>
+                            </div>
+                        </div>
+                        <div class="patch-selector-wrapper">
+                            <select class="patch-selector" data-patch-slot-id="skin">
+                                <option value="none-0">Нашивка</option>
+                                <option value="defense-1">+1% Защита</option>
+                                <option value="defense-2">+2% Защита</option>
+                                <option value="defense-3">+3% Защита</option>
+                                <option value="damage-1">+1 Урон</option>
+                                <option value="damage-2">+2 Урон</option>
+                                <option value="damage-3">+3 Урон</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛОТЫ ДЛЯ АКСЕССУАРОВ -->
+                <div class="accessory-slots">
+                    <!-- Аксессуар 1 -->
+                    <div class="slot" data-slot-id="1">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-1">
+                        <h3 class="slot-title" id="name-1">Голова (1)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-1">
+                            <select id="select-1" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="1">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="1">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 2 -->
+                    <div class="slot" data-slot-id="2">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-2">
+                        <h3 class="slot-title" id="name-2">Лицо (2)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-2">
+                            <select id="select-2" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="2">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="2">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 3 -->
+                    <div class="slot" data-slot-id="3">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-3">
+                        <h3 class="slot-title" id="name-3">Рука (3)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-3">
+                            <select id="select-3" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="3">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="3">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 4 -->
+                    <div class="slot" data-slot-id="4">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-4">
+                        <h3 class="slot-title" id="name-4">Грудь (4)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-4">
+                            <select id="select-4" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="4">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="4">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 5 -->
+                    <div class="slot" data-slot-id="5">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-5">
+                        <h3 class="slot-title" id="name-5">Плечо (5)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-5">
+                            <select id="select-5" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="5">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="5">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 6 -->
+                    <div class="slot" data-slot-id="6">
+                        <button class="transfer-btn" title="Перенести характеристики">⇄</button>
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-6">
+                        <h3 class="slot-title" id="name-6">Спина (6)</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-6">
+                            <select id="select-6" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="6">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14" >
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                            <div class="patch-selector-wrapper">
+                                <select class="patch-selector" data-patch-slot-id="6">
+                                    <option value="none-0">Нашивка</option>
+                                    <option value="defense-1">+1% Защита</option>
+                                    <option value="defense-2">+2% Защита</option>
+                                    <option value="defense-3">+3% Защита</option>
+                                    <option value="damage-1">+1 Урон</option>
+                                    <option value="damage-2">+2 Урон</option>
+                                    <option value="damage-3">+3 Урон</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Аксессуар 7 -->
+                    <div class="slot" data-slot-id="7">
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-7">
+                        <h3 class="slot-title" id="name-7">Слот 7</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-7">
+                            <select id="select-7" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="7">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14">
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Аксессуар 8 -->
+                    <div class="slot" data-slot-id="8">
+                        <img src="" alt="Аксессуар" class="slot-image" id="image-8">
+                        <h3 class="slot-title" id="name-8">Слот 8</h3>
+                        <div class="slot-transfer-info"></div>
+                        <div class="slot-unique-property"></div>
+                        <div class="selector-container">
+                            <input type="text" class="slot-search-input" placeholder="Поиск..."
+                                data-target-select="select-8">
+                            <select id="select-8" class="slot-select"></select>
+                        </div>
+                        <div class="modifiers-container">
+                            <div class="enhancement-container">
+                                <label>Улучшение:</label>
+                                <div class="enhancement-control" data-enhancement-slot-id="8">
+                                    <button class="enhancement-btn minus" data-action="minus">-</button>
+                                    <input type="number" class="enhancement-input" value="0" min="0" max="14">
+                                    <button class="enhancement-btn plus" data-action="plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция итоговых характеристик -->
+            <div class="summary">
+                <h2>Итоговые характеристики</h2>
+                <ul id="summary-list"></ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальное окно для переноса статов -->
+    <div id="transfer-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" title="Закрыть">×</button>
+            <h2>Выбор для переноса</h2>
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" data-tab="stats">Характеристики</button>
+                <button class="modal-tab-btn" data-tab="properties">Уникальные свойства</button>
+            </div>
+            <div class="modal-search-wrapper">
+                <input type="text" id="modal-search" placeholder="Поиск по названию или характеристике...">
+            </div>
+            <ul class="stat-list" id="modal-stat-list"></ul>
+            <div class="modal-actions">
+                <button id="modal-apply-btn" class="modal-btn primary">Применить</button>
+                <button id="modal-reset-btn" class="modal-btn secondary">Сбросить перенос</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
